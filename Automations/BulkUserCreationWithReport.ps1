@@ -1,5 +1,5 @@
 # Import your module
-import-Module "C:\Projects\PCX.IntuneToolkit" -Force
+import-Module ".\PCX.IntuneToolkit.psm1" -Force
 
 <# 
 Import-Module PCX.IntuneToolkit -Force
@@ -15,7 +15,7 @@ Initialize-PCXLogging
 Start-PCXTranscript -Enable
 
 # Connect to Microsoft Graph
-Connect-PCXIntune
+#Connect-PCXIntune
 # or:
 # Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.ReadWrite.All" `
 #     -UseDeviceAuthentication `
@@ -31,7 +31,6 @@ $ReportPath = Join-Path `
 # Run automation
 $Results = New-PCXMgUsersFromCSV `
     -Path "C:\Projects\Mangalore_Udupi_Employees_6.csv" `
-    -ExportReport `
     -ReportPath $ReportPath
 
 <#
@@ -48,5 +47,6 @@ $Results | Group-Object Status | Format-Table Name, Count -AutoSize
 
 # Show report location
 Write-Host "Report saved to: $ReportPath" -ForegroundColor Green
+
 
 Stop-PCXTranscript
