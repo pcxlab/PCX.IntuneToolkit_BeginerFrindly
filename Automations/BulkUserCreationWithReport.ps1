@@ -15,7 +15,7 @@ Initialize-PCXLogging
 Start-PCXTranscript -Enable
 
 # Connect to Microsoft Graph
-#Connect-PCXIntune
+Connect-PCXIntune
 # or:
 # Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.ReadWrite.All" `
 #     -UseDeviceAuthentication `
